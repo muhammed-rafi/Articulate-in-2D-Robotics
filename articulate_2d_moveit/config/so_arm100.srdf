@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="so_arm100">
+
+    <group name="arm">
+        <chain base_link="base" tip_link="jaw"/>
+    </group>
+
+    <end_effector name="gripper" parent_link="jaw" group="arm"/>
+
+    <virtual_joint name="world_joint"
+                   type="fixed"
+                   parent_frame="world"
+                   child_link="base"/>
+
+</robot>

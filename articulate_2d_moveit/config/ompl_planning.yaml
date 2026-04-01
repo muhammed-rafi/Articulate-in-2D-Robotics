@@ -1,0 +1,21 @@
+planner_configs:
+  RRTConnect:
+    type: geometric::RRTConnect
+    range: 0.0
+
+  RRT:
+    type: geometric::RRT
+    range: 0.0
+
+  PRM:
+    type: geometric::PRM
+    range: 0.0
+
+arm:
+  planner_configs:
+    - RRTConnect
+    - RRT
+    - PRM
+
+  projection_evaluator: joints(shoulder_pan,shoulder_lift)
+  longest_valid_segment_fraction: 0.005
