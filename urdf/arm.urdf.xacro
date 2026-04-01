@@ -21,19 +21,19 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Base.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Base.stl"/>
       </geometry>
       <material name="3d_printed"/>
     </visual>
     <visual>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Base_Motor.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Base_Motor.stl"/>
       </geometry>
       <material name="sts3215"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Base.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Base.stl"/>
       </geometry>
     </collision>
   </link>
@@ -53,13 +53,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Rotation_Pitch.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Rotation_Pitch.stl"/>
       </geometry>
       <material name="3d_printed"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Rotation_Pitch.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Rotation_Pitch.stl"/>
       </geometry>
     </collision>
   </link>
@@ -81,13 +81,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Upper_Arm.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Upper_Arm.stl"/>
       </geometry>
       <material name="3d_printed"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Upper_Arm.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Upper_Arm.stl"/>
       </geometry>
     </collision>
   </link>
@@ -109,13 +109,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Lower_Arm.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Lower_Arm.stl"/>
       </geometry>
       <material name="3d_printed"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Lower_Arm.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Lower_Arm.stl"/>
       </geometry>
     </collision>
   </link>
@@ -137,13 +137,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Wrist_Pitch_Roll.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Wrist_Pitch_Roll.stl"/>
       </geometry>
       <material name="3d_printed"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Wrist_Pitch_Roll.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Wrist_Pitch_Roll.stl"/>
       </geometry>
     </collision>
   </link>
@@ -165,7 +165,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Fixed_Jaw.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Fixed_Jaw.stl"/>
       </geometry>
       <material name="3d_printed"/>
     </visual>
@@ -188,7 +188,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/meshes/Moving_Jaw.stl"/>
+        <mesh filename="package://articulate_2d/meshes/Moving_Jaw.stl"/>
       </geometry>
       <material name="3d_printed"/>
     </visual>
@@ -203,7 +203,11 @@
   </joint>
 
   <!-- ROS2 CONTROL -->
-  <ros2_control name="IgnitionSystem" type="system">
+  <!-- <ros2_control name="IgnitionSystem" type="system">
+    <hardware>
+      <plugin>ign_ros2_control/IgnitionSystem</plugin>
+    </hardware> -->
+  <ros2_control name="GazeboSystem" type="system">
     <hardware>
       <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
@@ -251,6 +255,12 @@
         name="gz_ros2_control::GazeboSimROS2ControlPlugin">
       <parameters>/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/config/controllers.yaml</parameters>
     </plugin>
+<!-- 
+    <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+      <parameters>/home/rafi/Documents/Robotics/articulate2d_ws/src/articulate_2d/config/controllers.yaml</parameters>
+    </plugin> -->
   </gazebo>
+
+  
 
 </robot>

@@ -3,6 +3,7 @@ from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
 import os
 import xacro
+from launch.actions import TimerAction
 
 def generate_launch_description():
 
@@ -44,16 +45,39 @@ def generate_launch_description():
             parameters=[{'robot_description': robot_description}],
             output="screen"
         ),
-        Node(
-            package="controller_manager",
-            executable="spawner",
-            arguments=["joint_state_broadcaster"],
+        # Node(
+        #     package="controller_manager",
+        #     executable="spawner",
+        #     arguments=["joint_state_broadcaster"],
+        # ),
+
+        # Node(
+        #     package="controller_manager",
+        #     executable="spawner",
+        #     arguments=["arm_controller"],
+        # ),
+        TimerAction(
+            period=5.0,
+            actions=[
+                Node(
+                    package="controller_manager",
+                    executable="spawner",
+                    arguments=["joint_state_broadcaster"],
+                    output="screen",
+                ),
+            ],
         ),
 
-        Node(
-            package="controller_manager",
-            executable="spawner",
-            arguments=["arm_controller"],
+        TimerAction(
+            period=7.0,
+            actions=[
+                Node(
+                    package="controller_manager",
+                    executable="spawner",
+                    arguments=["arm_controller"],
+                    output="screen",
+                ),
+            ],
         ),
 
     ])
