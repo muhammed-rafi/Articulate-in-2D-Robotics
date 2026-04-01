@@ -88,7 +88,7 @@ arm_controller → active
 ### ▶️ Run Python Controller
 
 ```bash
-python3 send_trajectory.py
+python3 follow_trajectory.py
 ```
 
 ---
